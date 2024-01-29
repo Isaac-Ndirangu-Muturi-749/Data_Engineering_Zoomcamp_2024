@@ -85,3 +85,101 @@ http://127.0.0.1:8000/yellow_tripdata_2021-01.csv
 http://127.0.0.1:8000/yellow_tripdata_2021-01.csv.gz
 
 
+Overview of Docker Compose
+Compose is a tool for defining and running multi-container Docker applications. With Compose,
+you use a YAML file to configure your application's services. Then, with a single command, you
+create and start all the services from your configuration.
+
+docker volume create dtc_postgres_volume_local
+
+
+
+https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv
+
+
+!wget https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv
+
+docker-compose up
+
+SELECT
+    *
+FROM
+    yellow_taxi_trips t,
+    zones zpu,
+    zones zdo
+WHERE
+    t."PULocationID" = zpu."LocationID" AND
+    t."DOLocationID" = zdo."LocationID"
+LIMIT
+    100;
+
+
+SELECT
+    tpep_pickup_datetime,
+    tpep_dropoff_datetime,
+    total_amount,
+    CONCAT(zpu."Borough", ' / ',zpu."Zone") AS "pickup_loc",
+    CONCAT(zdo."Borough", ' / ',zdo."Zone") AS "dropoff_loc"
+
+FROM
+    yellow_taxi_trips t JOIN zones zpu
+        ON t."PULocationID" = zpu."LocationID"
+    JOIN zones zdo
+        ON t."DOLocationID" = zdo."LocationID"
+
+FROM
+    yellow_taxi_trips t
+WHERE
+    "PULocationID" NOT IN (SELECT "LocationID" FROM zones)
+
+
+SELECT
+    tpep_pickup_datetime,
+    tpep_dropoff_datetime,
+    "PULocationID",
+    "DOLocationID"
+FROM
+    yellow_taxi_trips t
+LIMIT 100;
+
+
+DELETE FROM zones WHERE "LocationID" = 142;
+
+DATE_TRUNC('DAY', tpep_dropoff_datetime),
+
+CAST(tpep_dropoff_datetime AS DATE),
+
+
+SELECT
+    CAST(tpep_dropoff_datetime AS DATE) as "day",
+    COUNT(1)
+    MAX(total_amount),
+    MAX(passenger_count)
+FROM
+    yellow_taxi_trips t
+GROUP BY
+    CAST(tpep_dropoff_datetime AS DATE)
+ORDER BY
+    "day" ASC
+LIMIT
+    100;
+
+
+
+
+SELECT
+    CAST(tpep_dropoff_datetime AS DATE) as "day",
+    "DOLocationID",
+    COUNT(1) AS "count",
+    MAX(total_amount) AS "max_amount",
+    MAX(passenger_count) AS "max_passengers"
+FROM
+    yellow_taxi_trips t
+GROUP BY
+    1, 2
+ORDER BY
+    "day" ASC,
+    "DOLocationID" ASC
+LIMIT
+    100;
+

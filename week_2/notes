@@ -1,0 +1,49 @@
+HashiCorp Terraform is an infrastructure as code tool that lets you
+define both cloud and on-prem resources in human-readable
+configuration files that you can version, reuse, and share. You can then
+use a consistent workflow to provision and manage all of your
+infrastructure throughout its lifecycle.
+
+
+Why Terraform?
+
+Simplicity in keeping track of infrastructure
+Easier collaboration
+Reproducibility
+Ensure resources are removed
+
+
+What Terraform is not-
+
+· Does not manage and update code on infrastructure
+. Does not give you the ability to change immutable resources
+. Not used to manage resources not defined in your terraform files
+
+
+What is Terraform?
+· Infrastructure as code
+
+What are providers?
+
+Code that allows terraform to communicate to manage resources on
+. AWS
+· Azure
+· GCP
+· Kubernetes
+· VSphere
+· Alibaba Cloud
+· Oracle Cloud Infrastructure
+· Active Directory
+
+
+Key Terraform Commands
+
+. Init - Get me the providers I need
+
+· Plan - What am I about to do?
+
+. Apply - Do what is in the tf files
+
+. Destroy - Remove everything defined in the tf files
+
+
