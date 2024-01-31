@@ -138,3 +138,10 @@ pgcli -h localhost -U root -d ny_taxi
 export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/direct-disk-412820-2671b48097be.json
 
 gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+
+
+docker build -t taxi_ingest:v001 .
+
+ny_taxi_postgres_data
+
+chmod o+rwx ny_taxi_postgres_data
