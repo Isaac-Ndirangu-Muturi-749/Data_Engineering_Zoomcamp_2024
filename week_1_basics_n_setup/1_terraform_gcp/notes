@@ -131,3 +131,10 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 wget https://github.com/docker/compose/releases/download/v2.24.3/docker-compose-linux-x86_64 -O docker-compose
 
+
+pgcli -h localhost -U root -d ny_taxi
+
+
+export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/direct-disk-412820-2671b48097be.json
+
+gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
