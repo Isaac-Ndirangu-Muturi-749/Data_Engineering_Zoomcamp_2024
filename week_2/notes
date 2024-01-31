@@ -83,3 +83,35 @@ resource "google_storage_bucket" "auto-expire" {
 }
 
 
+variable "bq_dataset_name" {
+    Idescription = "My BigQuery Dataset Name"
+    default = "demo_dataset"
+}
+
+variable "gcs_bucket_name" {
+    description = "My Storage Bucket Name"
+    default = "direct-disk-412820-terra-bucket"
+}
+
+variable "gcs_storage_class" {
+    description = "Bucket Storage Class"
+    default = "STANDARD"
+}
+
+
+unset GOOGLE_CREDENTIALS
+
+
+ssh-keygen -t rsa -f gcloud -C ndirangu749 -b 2048
+
+
+ssh -i ~/.ssh/gcloud ndirangu749@35.184.39.158
+
+
+wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+
+
+sudo apt-get install docker.io
+
+
+\\wsl.localhost\Ubuntu-20.04\home\ndirangu749\.ssh\config
