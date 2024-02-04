@@ -169,7 +169,4 @@ node_modules
 scratch*
 /mage_data*
 *secrets*.json
-magic-zoomcamp
 *.json
-
-direct-disk-412820-951f0087b486.json
