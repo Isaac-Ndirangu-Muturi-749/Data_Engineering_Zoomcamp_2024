@@ -6,3 +6,13 @@ gcloud storage ls
 git clone https://github.com/mage-ai/mage-ai-terraform-templates.git
 
 sudo chown ndirangu749:ndirangu749 ny_taxi_postgres_data
+
+docker stop magic-zoomcamp-postgres
+docker stop mage-zoomcamp-magic-1
+
+
+https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/green/download
+green_tripdata_2019-01.csv.gz
+
+
+gsutil ls -d gs://mage_data_engineering_zoomcamp/green_taxi_data/*/ | wc -l
