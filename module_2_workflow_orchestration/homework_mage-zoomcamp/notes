@@ -1,0 +1,8 @@
+gcloud config set project direct-disk-412820
+
+gcloud storage ls
+
+
+git clone https://github.com/mage-ai/mage-ai-terraform-templates.git
+
+sudo chown ndirangu749:ndirangu749 ny_taxi_postgres_data
