@@ -1,0 +1,4 @@
+gsutil cp /home/ndirangu749/ZOOMCAMP/Data_Engineering_Zoomcamp_2024/module_3_data_warehouse/green_taxi_data_2022/green_tripdata_2022-11.parquet gs://mage_data_engineering_zoomcamp/green_taxi_data_2022/
+
+
+green_tripdata_2022-11.parquet
