@@ -1,0 +1,3 @@
+*.json
+fhv_tripdata_2019-01.csv.gz
+fhv_tripdata_2019-01.parquet
