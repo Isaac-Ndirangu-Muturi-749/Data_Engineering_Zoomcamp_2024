@@ -17,7 +17,7 @@ models:
         tests:
             - not_null:
                 severity: error
-      
+
   - name: fact_trips
     description: >
       Taxi trips corresponding to both service zones (Green and yellow).
@@ -127,3 +127,5 @@ models:
       - name: payment_type_description
         data_type: string
         description: ""
+
+  - name: fact_fhv_trips
