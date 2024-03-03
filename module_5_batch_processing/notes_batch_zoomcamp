@@ -3,3 +3,50 @@ export PATH="${JAVA_HOME}/bin:${PATH}"
 
 export SPARK_HOME="${HOME}/spark/spark-3.3.2-bin-hadoop3"
 export PATH="${SPARK_HOME}/bin:${PATH}"
+
+py4j-0.10.9.5-src.zip
+
+export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
+export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
+
+scp ~/Downloads/04_pyspark.ipynb ndirangu749@de-zoomcamp:/home/ndirangu749/Data_Engineering_Zoomcamp_2024/module_5_batch_processing/notebooks
+
+ scp ~/Downloads/05_taxi_schema.ipynb ndirangu749@de-zoomcamp:/home/ndirangu749/Data_Engineering_Zoomcamp_2024/module_5_batch_processing/notebooks
+
+
+types.Structtype([
+    types.StructField("VendorID", types.Intergertype(),True), 
+    types.StructField("lpep_pickup_datetime", types.Stringtype(),True), 
+    types.StructField("1pep_dropoff_datetime", types.Stringtype(),True), 
+    types.StructField("store_and_fwd_flag", types.Stringtype(),True), 
+    types.StructField("RatecodeID", types.Intergertype(),True), 
+    types.StructField("PULocationID", types.Intergertype(),True), 
+    types.StructField("DOLocationID", types.Intergertype(),True), 
+    types.StructField("passenger_count", types.Intergertype(),True), 
+    types.StructField("trip_distance", types.Doubletype(),True), 
+    types.StructField("fare_amount", types.Doubletype(),True), 
+    types.StructField("extra, Doubletype(),True"), 
+    types.StructField("mta_tax",Doubletype(),True), 
+    types.StructField("tip_amount", types.Doubletype(),True), 
+    types.StructField("tolls_amount", types.Doubletype(),True), 
+    types.StructField("ehail_fee", types.Doubletype(),True), 
+    types.StructField("improvement_surcharge", types.Doubletype(),True), 
+    types.StructField("total_amount", types.Doubletype(),True), 
+    types.StructField("payment_type", types.Intergertype(),True), 
+    types.StructField("trip_type", types.Intergertype(),True),
+    types.StructField("congestion_surcharge", types.Doubletype(),True)
+]
+)
+
+scp ~/Downloads/06_spark_sql.ipynb ndirangu749@de-zoomcamp:/home/ndirangu749/Data_Engineering_Zoomcamp_2024/module_5_batch_processing/notebooks
+
+git config --global user.email ndirangumuturi749@gmail.com
+git config --global user.name Isaac-Ndirangu-Muturi-749
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github
+
+git remote set-url origin git@github.com:Isaac-Ndirangu-Muturi-749/Data_Engineering_Zoomcamp_2024.git
+
+
+git reset --soft 671840c
