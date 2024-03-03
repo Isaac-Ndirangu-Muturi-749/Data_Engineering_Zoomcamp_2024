@@ -50,3 +50,7 @@ git remote set-url origin git@github.com:Isaac-Ndirangu-Muturi-749/Data_Engineer
 
 
 git reset --soft 671840c
+
+
+git restore --staged data/raw/yellow/2020/01/yellow_tripdata_2020_01.csv.gz
+git restore --staged data/raw/yellow/2020/02/yellow_tripdata_2020_02.csv.gz
