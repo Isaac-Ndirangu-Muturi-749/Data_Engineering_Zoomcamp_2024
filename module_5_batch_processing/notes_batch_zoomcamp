@@ -54,3 +54,58 @@ git reset --soft 671840c
 
 git restore --staged data/raw/yellow/2020/01/yellow_tripdata_2020_01.csv.gz
 git restore --staged data/raw/yellow/2020/02/yellow_tripdata_2020_02.csv.gz
+
+scp ~/Downloads/08_rdds.ipynb ndirangu749@de-zoomcamp:/home/ndirangu749/Data_Engineering_Zoomcamp_2024/module_5_batch_processing/notebooks
+
+gsutil -m cp -r data/pq/ gs://de-zoomcamp-ny_taxi-data-lake/pq
+
+BUCKET="hadoop-lib"
+KEY="gcs/gcs-connector-hadoop3-2.2.5.jar"
+URL="https://storage.googleapis.com/${BUCKET}/${KEY}"
+wget ${URL}
+
+gsutil cp gs://hadoop-lib/gcs/gcs-connector-hadoop3-2.2.5.jar
+scp ~/Downloads/09_spark_gcs.ipynb ndirangu749@de-zoomcamp:/home/ndirangu749/Data_Engineering_Zoomcamp_2024/module_5_batch_processing/notebooks
+
+scp ~/direct-disk-412820-951f0087b486.json ndirangu749@de-zoomcamp:~/.google/credentials/
+
+mkdir -p ~/.google/credentials/
+
+
+gsutil cp gs://hadoop-lib/gcs/gcs-connector-hadoop3-2.2.5.jar gcs-connector-hadoop3-2.2.5.jar
+
+spark://de-zoomcamp.us-central1-c.c.direct-disk-412820.internal:7077
+
+URL="spark://de-zoomcamp.us-central1-c.c.direct-disk-412820.internal:7077"
+./sbin/start-slave.sh ${URL}
+
+# for newer versions of spark use that:
+#./sbin/start-worker.sh ${URL}
+
+python 06_spark_sql.py \
+    --input_green=../data/pq/green/2020/*/ \
+    --input_yellow=../data/pq/yellow/2020/*/ \
+    --output=../data/report-2020
+
+
+URL="spark://de-zoomcamp.us-central1-c.c.direct-disk-412820.internal:7077"
+spark-submit \
+    --master="${URL}" \
+    06_spark_sql.py \
+        --input_green=../data/pq/green/2021/*/ \
+        --input_yellow=../data/pq/yellow/2021/*/ \
+        --output=../data/report-2021
+
+Is ../data/report-2020/
+
+
+
+cd $(echo $SPARK_HOME)
+
+URL="spark://de-zoomcamp.us-central1-c.c.direct-disk-412820.internal:7077"
+./sbin/stop-slave.sh ${URL}
+
+gsutil cp 06_spark_sql.py gs://de-zoomcamp-ny_taxi-data-lake/code/06_spark_sql.py
+
+https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/5b71053758316d16bc5f584529dc33838ab4a800/cohorts/2024/05-batch/homework.md
+
